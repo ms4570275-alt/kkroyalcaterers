@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KK Royal Caterers & Management - Royal catering services for weddings, corporate events, parties and special occasions.">
+    <title>KK Royal Caterers & Management | Unforgettable Food For Every Occasion</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init("9Oc2cXAcaCTTY8bUL");
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f223d',
+                            900: '#0B192C',
+                            950: '#060d18',
+                        },
+                        cream: {
+                            50: '#FCFBF7',
+                            100: '#FFFDD0',
+                            200: '#FDFBF7',
+                            300: '#f5f0d8',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                            gradient: 'linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%)',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #0B192C;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .gold-border-gradient {
+            border-image: linear-gradient(to right, #d4af37, #f3e5ab, #aa7c11) 1;
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #78350f 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(#d97706 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-amber-200 selection:text-navy-900">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-cream-50/95 backdrop-blur-md border-b border-amber-200/60 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group" aria-label="KK Royal Caterers Home">
+                    <div class="w-12 h-12 rounded-full bg-navy-900 border-2 border-amber-500 flex items-center justify-center text-amber-400 shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-crown text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="heading-font font-bold text-lg sm:text-xl tracking-wider text-navy-900 group-hover:text-amber-700 transition-colors">
+                            KK ROYAL
+                        </span>
+                        <span class="text-[10px] tracking-widest font-semibold text-amber-700 uppercase -mt-1">
+                            Caterers & Management
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+                    <a href="#home" class="text-navy-900 hover:text-amber-600 font-medium transition-colors py-1 border-b-2 border-transparent hover:border-amber-600">Home</a>
+                    <a href="#about" class="text-navy-900 hover:text-amber-600 font-medium transition-colors py-1 border-b-2 border-transparent hover:border-amber-600">About Us</a>
+                    <a href="#packages" class="text-navy-900 hover:text-amber-600 font-medium transition-colors py-1 border-b-2 border-transparent hover:border-amber-600">Packages</a>
+                    <a href="#calculator" class="text-navy-900 hover:text-amber-600 font-medium transition-colors py-1 border-b-2 border-transparent hover:border-amber-600">Cost Estimator</a>
+                    <a href="#gallery" class="text-navy-900 hover:text-amber-600 font-medium transition-colors py-1 border-b-2 border-transparent hover:border-amber-600">Gallery</a>
+                </nav>
+
+                <!-- CTA -->
+                <div class="hidden md:block">
+                    <a href="#book" class="inline-flex items-center gap-2 bg-navy-900 text-amber-300 px-6 py-2.5 rounded-full font-semibold hover:bg-navy-800 border border-amber-400/40 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Book Now</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                        type="button"
+                        class="md:hidden text-navy-900 hover:text-amber-600 focus:outline-none p-2"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="mobileMenu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream-100 border-b border-amber-200/80 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-navy-900 hover:bg-amber-100 font-medium">Home</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-navy-900 hover:bg-amber-100 font-medium">About Us</a>
+            <a href="#packages" class="mobile-nav-link block px-3 py-2 rounded-lg text-navy-900 hover:bg-amber-100 font-medium">Packages</a>
+            <a href="#calculator" class="mobile-nav-link block px-3 py-2 rounded-lg text-navy-900 hover:bg-amber-100 font-medium">Cost Estimator</a>
+            <a href="#gallery" class="mobile-nav-link block px-3 py-2 rounded-lg text-navy-900 hover:bg-amber-100 font-medium">Gallery</a>
+            <a href="#book" class="mobile-nav-link block w-full text-center bg-navy-900 text-amber-300 py-3 rounded-lg font-semibold shadow-md mt-4">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden pt-12 pb-20 md:py-28 bg-gradient-to-b from-cream-50 via-cream-100 to-cream-200">
+        <div class="absolute inset-0 bg-pattern"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-amber-100 border border-amber-300/80 px-4 py-1.5 rounded-full text-amber-900 text-xs sm:text-sm font-semibold tracking-wide">
+                        <i class="fa-solid fa-utensils text-amber-600"></i>
+                        <span>Royal Taste & Exceptional Catering Services</span>
+                    </div>
+
+                    <h1 class="heading-font text-3xl sm:text-5xl lg:text-6xl font-extrabold text-navy-900 leading-tight">
+                        Unforgettable Food <br class="hidden sm:inline">
+                        <span class="gold-text-gradient">For Every Occasion</span>
+                    </h1>
+
+                    <p class="text-slate-700 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Elevate your weddings, grand receptions, corporate galas, and family celebrations with authentic flavors, majestic presentations, and flawless hospitality by <strong>KK Royal Caterers & Management</strong>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#packages" class="w-full sm:w-auto text-center bg-navy-900 hover:bg-navy-800 text-amber-300 font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-400/30">
+                            Explore Menu
+                        </a>
+                        <a href="#book" class="w-full sm:w-auto text-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                            Book Event Now
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-amber-200/80 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="heading-font font-bold text-2xl text-navy-900">500+</p>
+                            <p class="text-xs text-slate-600 font-medium">Events Catered</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="heading-font font-bold text-2xl text-navy-900">100%</p>
+                            <p class="text-xs text-slate-600 font-medium">Pure Veg & Fresh</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="heading-font font-bold text-2xl text-navy-900">FSSAI</p>
+                            <p class="text-xs text-slate-600 font-medium">Registered</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-200/80 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80"
+                                 alt="Royal Indian Banquet Feast"
+                                 class="w-full h-80 sm:h-96 object-cover"
+                                 loading="eager"
+                                 onerror="this.src='https://placehold.co/800x600/0B192C/FFFDD0?text=KK+Royal+Catering'">
+                        </div>
+
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-amber-200 hidden sm:flex items-center gap-4 max-w-xs">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 text-xl font-bold">
+                                <i class="fa-solid fa-plate-wheat"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Authentic Culinary</h4>
+                                <p class="text-xs text-slate-500">Traditional & Modern Dishes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-700 font-semibold tracking-wider text-xs uppercase bg-amber-100 px-3 py-1 rounded-full">Who We Are</span>
+                <h2 class="heading-font text-3xl sm:text-4xl font-bold text-navy-900 mt-3">Crafting Royal Culinary Experiences</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition-shadow text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl group-hover:bg-navy-900 group-hover:text-amber-300 transition-colors">
+                        <i class="fa-solid fa-rings-wedding"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-navy-900 mb-3">Weddings & Galas</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Complete wedding catering with lavish buffet counters, live food stalls, and royal hospitality.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition-shadow text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl group-hover:bg-navy-900 group-hover:text-amber-300 transition-colors">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-navy-900 mb-3">Corporate Events</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Professional meal setups, high-tea packages, and formal dinner catering for business summits.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition-shadow text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl group-hover:bg-navy-900 group-hover:text-amber-300 transition-colors">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-navy-900 mb-3">Private Parties</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Tailored menus for birthdays, anniversaries, and family get-togethers with delicious custom dishes.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-amber-100 hover:shadow-md transition-shadow text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl group-hover:bg-navy-900 group-hover:text-amber-300 transition-colors">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold text-navy-900 mb-3">Bulk Food Orders</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Hygienic, prompt, and high-volume meal supply for large gatherings, religious functions, and retreats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="py-20 bg-navy-900 text-cream-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 font-semibold tracking-wider text-xs uppercase bg-navy-800 px-3 py-1 rounded-full border border-amber-400/30">Catering Packages</span>
+                <h2 class="heading-font text-3xl sm:text-4xl font-bold text-white mt-3">Explore Our Royal Packages</h2>
+                <p class="text-slate-300 text-sm sm:text-base mt-2">Carefully crafted menus designed to satisfy every palate</p>
+                <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12" id="packageTabs">
+                <button type="button" onclick="switchTab('traditional', this)" class="tab-btn active-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all border border-amber-400/40 bg-amber-500 text-navy-900 shadow-lg">
+                    Traditional Thali
+                </button>
+                <button type="button" onclick="switchTab('wedding', this)" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all border border-amber-400/40 bg-navy-800 text-cream-100 hover:bg-amber-500/20">
+                    Royal Wedding Feast
+                </button>
+                <button type="button" onclick="switchTab('snack', this)" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all border border-amber-400/40 bg-navy-800 text-cream-100 hover:bg-amber-500/20">
+                    Snack & Live Counters
+                </button>
+                <button type="button" onclick="switchTab('custom', this)" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all border border-amber-400/40 bg-navy-800 text-cream-100 hover:bg-amber-500/20">
+                    Custom Package
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-8 bg-navy-800/80 border border-amber-400/30 rounded-3xl p-6 sm:p-8 backdrop-blur-sm">
+                    <div id="packageContent"></div>
+                </div>
+
+                <div class="lg:col-span-4 bg-cream-50 text-navy-900 rounded-3xl p-6 border border-amber-200 shadow-xl space-y-6">
+                    <div class="border-b border-amber-200 pb-4">
+                        <h3 class="heading-font font-bold text-xl text-navy-900">Why Choose KK Royal?</h3>
+                        <p class="text-xs text-slate-600 mt-1">Quality & Service Guarantee</p>
+                    </div>
+
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-amber-600"></i><span>Fresh Ingredients & Premium Ghee</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-amber-600"></i><span>Trained Uniformed Waitstaff</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-amber-600"></i><span>Live Food Counter Options</span></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-amber-600"></i><span>Strict Hygiene Protocols</span></li>
+                    </ul>
+
+                    <div class="bg-amber-100/60 p-4 rounded-xl border border-amber-200">
+                        <p class="text-xs font-semibold text-amber-900">Need Customization?</p>
+                        <p class="text-xs text-slate-700 mt-1">We cater to Pure Veg, Marathi, Gujarati, Jain, Marwadi, South Indian, Punjabi, Bengali, Chinese and other preferences upon request.</p>
+                    </div>
+
+                    <a href="#book" class="block text-center bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 rounded-xl transition-all shadow-md">
+                        Book This Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Estimator -->
+    <section id="calculator" class="py-20 bg-cream-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-700 font-semibold tracking-wider text-xs uppercase bg-amber-200/60 px-3 py-1 rounded-full">Instant Estimate</span>
+                <h2 class="heading-font text-3xl sm:text-4xl font-bold text-navy-900 mt-3">Event Cost Estimator</h2>
+                <p class="text-slate-600 text-sm mt-2">Get an approximate budget estimate for your function in seconds</p>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-amber-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+                    <div>
+                        <label for="guestRange" class="block text-sm font-semibold text-navy-900 mb-2">
+                            Number of Guests:
+                            <span id="guestCountVal" class="text-amber-600 font-bold text-lg">150</span>
+                        </label>
+                        <input type="range" id="guestRange" min="50" max="1000" step="25" value="150" class="w-full accent-amber-500 cursor-pointer" oninput="calculateEstimate()">
+                        <div class="flex justify-between text-xs text-slate-500 mt-1">
+                            <span>50 Guests</span>
+                            <span>1000 Guests</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="packageSelect" class="block text-sm font-semibold text-navy-900 mb-2">Selected Package Type</label>
+                        <select id="packageSelect" onchange="calculateEstimate()" class="w-full p-3 rounded-xl border border-amber-300 bg-cream-50 text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            <option value="350">Standard Thali (₹350 / plate)</option>
+                            <option value="550" selected>Royal Wedding Buffet (₹550 / plate)</option>
+                            <option value="750">Imperial Feast + Live Counters (₹750 / plate)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-navy-900 text-cream-100 rounded-2xl p-6 text-center sm:flex sm:items-center sm:justify-between">
+                    <div class="text-center sm:text-left mb-4 sm:mb-0">
+                        <p class="text-xs text-amber-300 uppercase tracking-widest font-medium">Estimated Catering Budget</p>
+                        <p class="text-3xl sm:text-4xl font-extrabold text-white mt-1" id="totalEstimateDisplay">₹82,500</p>
+                        <p class="text-[11px] text-slate-400 mt-1">*Excluding taxes & special add-ons</p>
+                    </div>
+                    <button type="button" onclick="prefillBookingFromCalc()" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all shadow-md">
+                        Lock This Quote <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-700 font-semibold tracking-wider text-xs uppercase bg-amber-100 px-3 py-1 rounded-full">Visual Feast</span>
+                <h2 class="heading-font text-3xl sm:text-4xl font-bold text-navy-900 mt-3">Our Culinary Gallery</h2>
+                <p class="text-slate-600 text-sm mt-2">A glimpse of our delicious dishes and festive arrangements</p>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-amber-200 cursor-pointer h-64"
+                     onclick="openModal('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80', 'Rich Paneer Butter Masala')">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80"
+                         alt="Paneer Butter Masala"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/600x400/0B192C/FFFDD0?text=Paneer+Butter+Masala'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-amber-300 font-bold text-base">Paneer Butter Masala</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-amber-200 cursor-pointer h-64"
+                     onclick="openModal('https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80', 'Crispy Indian Starters & Samosas')">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80"
+                         alt="Crispy Indian Starters and Samosas"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/600x400/0B192C/FFFDD0?text=Starter+Counters'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-amber-300 font-bold text-base">Starter & Snack Counters</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-amber-200 cursor-pointer h-64"
+                     onclick="openModal('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80', 'Royal Veg Biryani')">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80"
+                         alt="Royal Veg Biryani"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/600x400/0B192C/FFFDD0?text=Royal+Biryani'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-amber-300 font-bold text-base">Royal Veg Biryani</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-md border border-amber-200 cursor-pointer h-64"
+                     onclick="openModal('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80', 'Idli and Coconut Chutney')">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80"
+                         alt="Idli and Coconut Chutney"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/600x400/0B192C/FFFDD0?text=Idli+%26+Chutney'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-amber-300 font-bold text-base">Idli & Coconut Chutney</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal"
+         class="fixed inset-0 z-50 bg-navy-950/90 hidden items-center justify-center p-4 backdrop-blur-md"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalCaption">
+        <div class="relative max-w-4xl w-full bg-navy-900 rounded-2xl overflow-hidden border border-amber-400/40">
+            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 text-white bg-navy-800/80 hover:bg-amber-500 w-10 h-10 rounded-full flex items-center justify-center text-lg z-10 transition-colors" aria-label="Close image">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="modalImg" src="" alt="Gallery Image" class="w-full max-h-[75vh] object-contain bg-black/40">
+            <div class="p-4 text-center bg-navy-900">
+                <p id="modalCaption" class="text-amber-300 font-semibold text-lg"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking / Contact -->
+    <section id="book" class="py-20 bg-navy-900 text-cream-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-amber-400 font-semibold tracking-wider text-xs uppercase bg-navy-800 px-3 py-1 rounded-full border border-amber-400/30">Get In Touch</span>
+                        <h2 class="heading-font text-3xl sm:text-4xl font-bold text-white mt-3">Book Your Event</h2>
+                        <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                            Have questions or want to secure your date? Fill out the form or reach out to us directly for personalized catering packages.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-400/30">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Office Address</h4>
+                                <p class="text-slate-300 text-sm mt-0.5">38A, Shankar Pandu Nagar, Karvand Road, Shirpur, Dist. Dhule, Maharashtra, 425405</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-400/30">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Phone & WhatsApp</h4>
+                                <p class="text-sm mt-0.5 space-x-2">
+                                    <a href="tel:+918279216494" class="text-slate-300 hover:text-amber-300 transition-colors">+91 8279216494</a>
+                                    <span class="text-slate-500">/</span>
+                                    <a href="tel:+917877913112" class="text-slate-300 hover:text-amber-300 transition-colors">+91 7877913112</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-400/30">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-base">Email Inquiry</h4>
+                                <a href="mailto:kkroyalcaterers@gmail.com" class="text-slate-300 hover:text-amber-300 text-sm mt-0.5 inline-block transition-colors">kkroyalcaterers@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-r from-emerald-900/80 to-navy-800 rounded-2xl border border-emerald-500/40">
+                        <h4 class="font-bold text-white text-base flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> Direct WhatsApp Booking
+                        </h4>
+                        <p class="text-xs text-emerald-200 mt-1">Prefer quick messaging? Connect directly with our event manager.</p>
+                        <a href="https://wa.me/917877913112?text=Hi%20KK%20Royal%20Caterers,%20I%20want%20to%20inquire%20about%20catering%20services."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-block mt-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors">
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="lg:col-span-7 bg-cream-50 text-navy-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-amber-200">
+                    <h3 class="heading-font text-2xl font-bold text-navy-900 mb-6">Reservation Form</h3>
+
+                    <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="formName" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Your Name *</label>
+                                <input type="text" id="formName" required autocomplete="name" placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            </div>
+
+                            <div>
+                                <label for="formPhone" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number *</label>
+                                <input type="tel" id="formPhone" required autocomplete="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="e.g. 9876543210" title="Please enter a valid 10-digit Indian mobile number" class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="formEmail" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address</label>
+                                <input type="email" id="formEmail" autocomplete="email" placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            </div>
+
+                            <div>
+                                <label for="formDate" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Event Date *</label>
+                                <input type="date" id="formDate" required class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="formEventType" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Event Type *</label>
+                                <select id="formEventType" required class="w-full p-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                                    <option>Wedding Ceremony</option>
+                                    <option>Reception Gala</option>
+                                    <option>Corporate Conference</option>
+                                    <option>Birthday / Anniversary</option>
+                                    <option>Religious / Puja Event</option>
+                                    <option>Other Event</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="formGuests" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Guest Count *</label>
+                                <input type="number" id="formGuests" placeholder="150" required min="10" max="10000" inputmode="numeric" class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="formMessage" class="block text-xs font-semibold text-slate-700 uppercase mb-1">Special Requirements / Dish Preferences</label>
+                            <textarea id="formMessage" rows="3" placeholder="Tell us about food preferences, Jain menu, live counters, etc..." class="w-full px-4 py-3 rounded-xl border border-amber-300 bg-white text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"></textarea>
+                        </div>
+
+                        <button id="submitBtn" type="submit" class="w-full bg-navy-900 hover:bg-navy-800 text-amber-300 font-bold py-4 rounded-xl transition-all shadow-lg text-sm sm:text-base border border-amber-400/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Send Booking Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal"
+         class="fixed inset-0 z-50 bg-navy-950/80 hidden items-center justify-center p-4"
+         aria-hidden="true"
+         role="dialog"
+         aria-modal="true">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-amber-300 space-y-4">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="heading-font text-2xl font-bold text-navy-900">Inquiry Received!</h3>
+            <p class="text-slate-600 text-sm">Thank you for contacting <strong>KK Royal Caterers & Management</strong>. Our manager will call you within 2 hours to discuss your menu details.</p>
+            <button type="button" onclick="closeConfirmation()" class="w-full bg-navy-900 text-amber-300 font-semibold py-3 rounded-xl">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-400 pt-16 pb-12 border-t border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-navy-900 border border-amber-500 flex items-center justify-center text-amber-400">
+                            <i class="fa-solid fa-crown text-base"></i>
+                        </div>
+                        <span class="heading-font font-bold text-lg text-white">KK ROYAL</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Delivering unforgettable tastes, royal presentation, and elite catering management for grand events across the region.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase mb-4 tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
+                        <li><a href="#packages" class="hover:text-amber-400 transition-colors">Catering Packages</a></li>
+                        <li><a href="#calculator" class="hover:text-amber-400 transition-colors">Cost Estimator</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition-colors">Food Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase mb-4 tracking-wider">Our Services</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><span>Grand Wedding Buffets</span></li>
+                        <li><span>Corporate Dinner & Lunches</span></li>
+                        <li><span>Live Food Counter Sets</span></li>
+                        <li><span>Religious Event Feast</span></li>
+                        <li><span>Private Party Catering</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase mb-4 tracking-wider">Follow Us</h4>
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/share/14pmc4vu4yD/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-navy-900 border border-amber-400/30 flex items-center justify-center text-amber-400 hover:bg-amber-500 hover:text-navy-900 transition-colors" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/kk_royal_caterers?stkn=MmR1bGYxcDRqdjRw" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-navy-900 border border-amber-400/30 flex items-center justify-center text-amber-400 hover:bg-amber-500 hover:text-navy-900 transition-colors" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/KKRoyalCaterers" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-navy-900 border border-amber-400/30 flex items-center justify-center text-amber-400 hover:bg-amber-500 hover:text-navy-900 transition-colors" aria-label="X Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>© 2026 KK Royal Caterers & Management. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed for Royal Culinary Experiences</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Interactive Logic -->
+    <script>
+        const packagesData = {
+            traditional: {
+                title: 'Traditional Veg Thali',
+                price: '₹350 / Plate',
+                description: 'Classic rich traditional spread served with authentic recipes and pure desi ghee preparation.',
+                items: [
+                    'Paneer Butter Masala / Shahi Paneer',
+                    'Dal Tadka / Dal Makhani',
+                    'Seasonal Veg (Aloo Gobi / Bhindi Fry)',
+                    'Jeera Rice / Matar Pulao',
+                    'Tandoori Roti / Butter Naan / Puri',
+                    'Gulab Jamun (2 pcs) / Rasgulla',
+                    'Green Salad, Papad, Pickle & Raita'
+                ]
+            },
+            wedding: {
+                title: 'Royal Wedding Feast',
+                price: '₹550 / Plate',
+                description: 'Our most popular wedding buffet setup featuring multiple course meals and live welcome drinks.',
+                items: [
+                    'Welcome Drinks (Mocktails & Badam Milk)',
+                    'Starters (Paneer Tikka, Veg Cutlet, Hara Bhara Kabab)',
+                    'Paneer Pasanda & Veg Kolhapuri',
+                    'Hyderabadi Veg Biryani + Mirchi Ka Salan',
+                    'Assorted Indian Breads Counter',
+                    'Sweets: Moong Dal Halwa + Rasmalai',
+                    'Ice Cream Counter & Paan Stall'
+                ]
+            },
+            snack: {
+                title: 'Snack & Live Counters',
+                price: '₹400 / Plate',
+                description: 'Interactive live cooking stations for birthdays, receptions, and mocktail parties.',
+                items: [
+                    'Live Chaat Counter (Pani Puri, Aloo Tikki, Dahi Bhalla)',
+                    'Live Pasta & Pizza Counter',
+                    'Crispy Chinese Starter Counter (Manchurian, Noodles)',
+                    'South Indian Live Dosa & Dahi Vada',
+                    'Mocktail & Shake Lounge',
+                    'Hot Jalebi with Rabri Live Counter'
+                ]
+            },
+            custom: {
+                title: 'Custom Package',
+                price: 'Custom Price',
+                description: 'Build your exact menu according to dietary needs (Pure Veg, Marathi, Gujarati, Jain, Marwadi, South Indian, Punjabi, Bengali, Chinese etc.) and budget.',
+                items: [
+                    'Choose 3 Starters + 2 Welcome Drinks',
+                    'Select 3 Main Course Gravies + 2 Rice Varieties',
+                    'Select Bread Assortment',
+                    'Choose 2 Live Counter Add-ons',
+                    'Dedicated Chef & Uniformed Waiters'
+                ]
+            }
+        };
+
+        function switchTab(key, clickedButton) {
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-navy-900', 'shadow-lg');
+                btn.classList.add('bg-navy-800', 'text-cream-100');
+            });
+
+            if (clickedButton) {
+                clickedButton.classList.remove('bg-navy-800', 'text-cream-100');
+                clickedButton.classList.add('bg-amber-500', 'text-navy-900', 'shadow-lg');
+            }
+
+            const pkg = packagesData[key];
+            if (!pkg) return;
+
+            const contentContainer = document.getElementById('packageContent');
+
+            const itemsListHtml = pkg.items.map(item => `
+                <li class="flex items-center gap-3 text-sm sm:text-base text-slate-200">
+                    <i class="fa-solid fa-square-check text-amber-400 shrink-0"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            contentContainer.innerHTML = `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-400/20 pb-4 mb-6">
+                    <div>
+                        <h3 class="heading-font font-bold text-2xl text-amber-300">${pkg.title}</h3>
+                        <p class="text-xs text-slate-300 mt-1">${pkg.description}</p>
+                    </div>
+                    <div class="mt-4 sm:mt-0 bg-amber-500/20 border border-amber-400/40 text-amber-300 px-4 py-2 rounded-xl text-center">
+                        <span class="text-xs uppercase font-semibold block text-slate-300">Price Starting</span>
+                        <span class="font-bold text-lg">${pkg.price}</span>
+                    </div>
+                </div>
+
+                <p class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-4">Included Menu Items:</p>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    ${itemsListHtml}
+                </ul>
+            `;
+        }
+
+        function calculateEstimate() {
+            const guestRange = document.getElementById('guestRange');
+            const packageSelect = document.getElementById('packageSelect');
+
+            const guestCount = parseInt(guestRange.value, 10);
+            const pricePerPlate = parseInt(packageSelect.value, 10);
+
+            document.getElementById('guestCountVal').innerText = guestCount;
+
+            const total = guestCount * pricePerPlate;
+            document.getElementById('totalEstimateDisplay').innerText = '₹' + total.toLocaleString('en-IN');
+        }
+
+        function prefillBookingFromCalc() {
+            const guests = document.getElementById('guestRange').value;
+            document.getElementById('formGuests').value = guests;
+
+            document.getElementById('book').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            setTimeout(() => {
+                document.getElementById('formName').focus();
+            }, 500);
+        }
+
+        function openModal(src, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+
+            modalImg.src = src;
+            modalImg.alt = caption;
+            document.getElementById('modalCaption').innerText = caption;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+
+            const templateParams = {
+                name: document.getElementById('formName').value.trim(),
+                phone: document.getElementById('formPhone').value.trim(),
+                email: document.getElementById('formEmail').value.trim(),
+                date: document.getElementById('formDate').value,
+                eventType: document.getElementById('formEventType').value,
+                guests: document.getElementById('formGuests').value,
+                message: document.getElementById('formMessage').value.trim()
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+            try {
+                await emailjs.send(
+                    "service_ruwlrkl",
+                    "template_8tfwsl9",
+                    templateParams
+                );
+
+                document.getElementById("bookingForm").reset();
+
+                const modal = document.getElementById('confirmationModal');
+                modal.removeAttribute('aria-hidden');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+
+            } catch (error) {
+                console.error("EmailJS Error:", error);
+                alert("Failed to send inquiry. Please try again or contact us directly on WhatsApp.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+
+        function closeConfirmation() {
+            const modal = document.getElementById('confirmationModal');
+
+            modal.setAttribute("aria-hidden", "true");
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+        mobileBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+
+            mobileBtn.setAttribute('aria-expanded', String(!isHidden));
+            mobileMenuIcon.classList.toggle('fa-bars', isHidden);
+            mobileMenuIcon.classList.toggle('fa-xmark', !isHidden);
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuIcon.classList.add('fa-bars');
+                mobileMenuIcon.classList.remove('fa-xmark');
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeConfirmation();
+            }
+        });
+
+        document.getElementById('imageModal').addEventListener('click', (event) => {
+            if (event.target.id === 'imageModal') {
+                closeModal();
+            }
+        });
+
+        document.getElementById('confirmationModal').addEventListener('click', (event) => {
+            if (event.target.id === 'confirmationModal') {
+                closeConfirmation();
+            }
+        });
+
+        function setMinEventDate() {
+            const dateInput = document.getElementById('formDate');
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            switchTab('traditional', document.querySelector('.tab-btn'));
+            calculateEstimate();
+            setMinEventDate();
+        });
+    </script>
+</body>
+</html>
